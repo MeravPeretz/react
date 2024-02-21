@@ -1,15 +1,15 @@
 export const workers=[{
     id:111,
-    name:"shimon",
+    firstName:"shimon",
     lastName:"peretz",
     telephon:9745784,
-    Salary:6000,
+    salary:6000,
     hours:30,
 },{
     id:222,
-    name:"sara",
+    firstName:"sara",
     lastName:"levi",
     telephon:9587457,
-    Salary:8000,
+    salary:8000,
     hours:35,
 }]

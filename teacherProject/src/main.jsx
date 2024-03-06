@@ -5,35 +5,33 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from './App.jsx'
+import { BlogDetails } from './components/blog-details.component.jsx';
+import { Blogs } from './components/blogs.components.jsx';
+import { Home } from './components/home.component.jsx';
+import { SignIn } from './components/signin.component.jsx';
 import './index.css'
-import { ShowList } from './components/showList.component.jsx';
-import {Home }from './components/home.component'
-import DetailsById from './components/DetailsById.jsx';
 
+// אובייקט עם הגדרות ניווט
 const router = createBrowserRouter([
   {
     path: "/",
+    // element: <div>Hello world!</div>,
     Component: App,
-    children:[{
+    children: [{
       path: '',
       Component: Home,
-      children:[{
-        path: 'worker',
-        Component: ShowList,
-        children: [{
-          path: ':id',
-          Component: DetailsById
-        }]
-      },{
-        path: 'customer',
-        Component: ShowList,
-        children: [{
-          path: ':id',
-          Component: DetailsById
-        }]
+    }, {
+      path: 'blogs',
+      Component: Blogs,
+      children: [{
+        path: ':id',
+        Component: BlogDetails
       }]
     }]
-}
+  }, {
+    path: '/signin',
+    Component: SignIn,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -43,3 +41,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   // </React.StrictMode>,
 )
 
+
+
+/// https://reactrouter.com/en/main/start/tutorial

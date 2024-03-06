@@ -5,6 +5,7 @@ export const ShowList = (props) => {
     const list=props.list;
     const type=props.type;
     const updateList=props.updateList;
+    debugger;
     const ulDisplay={
         display:'flex',
     }

@@ -22,7 +22,7 @@ export const Home=()=>{
       <h1>our shop</h1>
       <button onClick={()=>setShow("worker")}><Link to="worker">show workers</Link> </button>
       <button onClick={()=>setShow("customer")}><Link to="customer">show customers</Link> </button>
-      {show === "worker" ? <Outlet type="worker" /> : <Outlet type="customer" />}
+      <Outlet/>
      </>        
   )
 }

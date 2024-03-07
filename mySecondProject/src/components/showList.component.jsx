@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import  Customer  from "./showCustomer.component";
 import  Worker  from "./showWorker.component";
+import { DataProvider } from './DataContext';
 
-import { workers } from '../data/workers'
-import {customers}from '../data/customers'
+ import { workers } from '../data/workers'
+ import {customers}from '../data/customers'
+
+import React, { useContext } from 'react';
 
 export const ShowList = (props) => {
     const type=props.type;
@@ -14,6 +17,8 @@ export const ShowList = (props) => {
    type==="customer"?
      useState(customers):
      useState(workers)
+     useEffect(() => {
+     },[customers,workers])
 
     const updateListFunc = (value,field,id) => {
         let itemToUpdate = list.find(i => i.id === id)                                
@@ -29,6 +34,6 @@ export const ShowList = (props) => {
         type==="customer"? list.map(item=> <li key={item.id}><Link to={":"+item.id}><Customer cust={item} update={updateListFunc}/></Link></li>):
                          list.map(item=> <li key={item.id}><Link to={":"+item.id}><Worker worker={item} update={updateListFunc}/></Link></li>)}
         </ul>
-        <Outlet/>
+       <DataProvider><Outlet/></DataProvider> 
     </div>)
 }

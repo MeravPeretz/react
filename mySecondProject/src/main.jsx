@@ -10,29 +10,28 @@ import { ShowList } from './components/showList.component.jsx';
 import {Home }from './components/home.component'
 import DetailsById from './components/DetailsById.jsx';
 
+const WorkersRoute = <ShowList type="worker" />
+
+const CustomersRoute = <ShowList type="customer" />
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: App,
+    Component: App,Home,
     children:[{
-      path: '',
-      Component: Home,
-      children:[{
         path: 'worker',
-        Component: ShowList,
-        children: [{
-          path: ':id',
-          Component: DetailsById
-        }]
+        element: WorkersRoute,
+    },{
+          path: 'worker/:id',
+          element: <DetailsById type="worker"></DetailsById>
+        
       },{
         path: 'customer',
-        Component: ShowList,
-        children: [{
-          path: ':id',
-          Component: DetailsById
-        }]
-      }]
-    }]
+        element:CustomersRoute,
+      },{
+          path: 'customer/:id',
+          element: <DetailsById type="customer"></DetailsById>
+        }
+      ]
 }
 ]);
 

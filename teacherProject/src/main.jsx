@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       path: 'blogs',
       Component: Blogs,
       children: [{
-        path: ':id',
+        path: ':{id}',
         Component: BlogDetails
       }]
     }]
@@ -43,4 +43,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 
 
-/// https://reactrouter.com/en/main/start/tutorial
+ https://reactrouter.com/en/main/start/tutorial

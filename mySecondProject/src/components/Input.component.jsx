@@ -16,7 +16,7 @@ export const Input = (props) => {
                 <input
                     type={props.inputType}
                     value={value}
-                    onBlur={() => {setEnableSetValue(false); props.update(value, props.field, props.type, props.id);}}
+                    onBlur={() => {setEnableSetValue(false); props.update(value, props.field, props.id);}}
                     onChange={(e) => setValue(e.target.value)}
                 />
             ) : (

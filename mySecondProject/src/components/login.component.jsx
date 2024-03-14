@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../data/user";
 
-export const SignIn = () => {
+export const Login = () => {
 
     const navigate = useNavigate();
-    const siginin = (event) => {
+    const login = (event) => {
         event.preventDefault();
         const user = {
             userName: event.target.userName.value,
@@ -14,8 +14,8 @@ export const SignIn = () => {
     }
 
     return <div>
-        <h1> Here you can  sign in </h1>
-        <form name="user" onSubmit={siginin}>
+        <h1> login: </h1>
+        <form name="user" onSubmit={login}>
             <input type="text" name="userName" /> <br />
             <button type="submit">login</button>
         </form>

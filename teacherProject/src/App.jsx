@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Header from './components/header.comonent';
 import './App.css'
 import { Counter } from './components/counter.component';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { getUser } from './data/user';
 
 function App() {
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const user = getUser();
+    if (!user) {
+      navigate('/signin')
+    }
+  }, [])
 
   // return React.createElement('div', {
   //   id: 'main',
